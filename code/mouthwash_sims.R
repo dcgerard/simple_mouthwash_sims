@@ -75,7 +75,7 @@ seed_start <- 1
 ## these change
 nullpi_seq   <- c(0.5, 0.9, 1)
 Nsamp_seq    <- c(6, 10, 20, 40)
-ncontrol_seq <- c(10, 100)
+ncontrol_seq <- c(100)
 
 par_vals <- expand.grid(list((1 + seed_start):(itermax + seed_start),
                              nullpi_seq, Nsamp_seq, ncontrol_seq))
@@ -121,7 +121,7 @@ if (length(args) == 0) {
 ## run once -------------------------------------------------------
 one_rep(new_params = par_list[[1]], current_params = args_val)
 
-# If on your own computer, use this.
+# run in parallel -------------------------------------------------
 library(parallel)
 cl   <- makeCluster(nc)
 cat("Running multithreaded computations with",nc,"threads.\n")
